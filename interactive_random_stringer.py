@@ -25,6 +25,7 @@ limit = int(0)
 number_of_strings = raw_input('Number of strings? ')
 random_string_length = raw_input('Length of strings: (no limit) ')
 print_to_file = raw_input('Print to file? (y/n) ')
+print_line_number = raw_input('Print string number? (y/n)')
 length = int(random_string_length)
 
 if print_to_file == 'y':
@@ -41,8 +42,11 @@ else:
     while limit < int(number_of_strings):
         choppo = "".join( [random.choice(string.digits) for i in xrange(length)] )
         limit+=1
-        print('String #' + str(limit) + ':')
-        print(choppo)
+        if print_line_number == 'n':
+            print(choppo)            
+        else:
+            print('String #' + str(limit) + ':')
+            print(choppo)
         
         
         
